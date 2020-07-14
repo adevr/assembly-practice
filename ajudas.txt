@@ -1,0 +1,61 @@
+--- Comandos
+
+mostrar contéudo de ficheiro masm
+-> type <nome_ficheiro>
+
+apagar ficheiro
+-> delete <nome_ficheiro>
+
+copiar ficheiro
+-> copy <nome_ficheiro> <nome_pasta>
+
+---
+
+--- Teclas
+---
+
+--- Assembly
+
+HELPPC - AJUDA LOCAL
+ML - TRADUTOR Assembly
+   - ml /Zi <nome_ficheiro>
+CV - DEBUGGER
+   - cv <nome_ficheiro>
+
+---
+
+
+---
+---
+Variáveis
+---
+---
+
+INTEIROS
+   -> Sem Sinal (Binário Puro): DB / BYTE (1 byte) = 0...255
+                                DW / WORD (2 bytes) = 0...65535
+                                DD / DWORD (4 bytes) = 0...???
+
+
+REAIS
+   -> IEEE754 : REAL4 (4 Bytes -> Simples - 32 bits)
+                REAL8 (8 Bytes -> Simples - 64 bits)
+                REAL10 (10 Bytes -> Simples - 80 bits)
+
+
+
+---
+---
+Arrays
+---
+---
+
+DUP - "Multiplicador..."
+
+tabela WORD 3 dup(1678) ; 2 bytes ---> [068Eh, 068Eh, 068Eh] || array com 3 posições com o valor 1678
+tabela BYTE 5, 10 ,15, 20 ; 1 bytes ---> [5, 10, 15, 20] -> [05h, 0Ah, 0Fh, 14h]
+
+
+/// trabalho de casa 
+
+moodle -> aula1.asm ver as variaveis e fazer mapa da memoria no excel

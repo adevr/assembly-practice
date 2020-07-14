@@ -1,0 +1,59 @@
+=========
+VARIÁVEIS
+=========
+
+--------
+INTEIROS
+--------
+Sem Sinal (binário puro): DB / BYTE  (1  byte  = 0...255)       0...(2^n-1)
+                          DW / WORD  (2  bytes = 0...65535)
+                          DD / DWORD (4  bytes = 0...???)
+                               FWORD (6  bytes = 0...???)
+                               QWORD (8  bytes = 0...???)
+                               TBYTE (10 bytes = 0...???)
+
+Com Sinal (complementos 2): SBYTE  (1  byte  = -128...+127)     -(2^(n-1))...+(2^(n-1)-1)
+                            SWORD  (2  bytes = -32768...32767)
+                            SDWORD (4  bytes = -???...+???)
+
+-----
+REAIS
+-----
+Reais (IEEE754): REAL4   ( 4 Bytes -> IEEE754 Simples   - 32 bits)    ---> float ('C')
+                 REAL8   ( 8 Bytes -> IEEE754 Dupla     - 64 bits)
+                 REAL10  (10 Bytes -> IEEE754 Expandida - 80 bits)
+
+------
+ARRAYS
+------
+
+DUP - "Multiplicador..."
+
+
+--------
+EXEMPLOS
+--------
+
+num1 WORD 1678    ; 2 Bytes -> 1678(10) = 0000011010001110b = 068Eh  [binário puro]
+
+num2 SBYTE -10    ; 1 Byte  ->  -10(10) = -00001010b = 11110110b(C2) = F6h(C2) [complemento 2]
+
+num3 BYTE -10     ; 1 Byte  ->  -10(10) = ... = F6h(C2) ---(byte)---> 246(10)
+
+num4 REAL4 -9.5   ; 4 Bytes -> -9.5(10) = -1001.1b = -1.0011b x 2^3  [normalizado]
+                                                   SINAL:    -     = 1
+                                                   EXPOENTE: 3(10) = 3 + 127 = 130(E127)
+                                                                             = 10000010b(E127)
+                                                   MANTISSA: 1.00110...
+                                                   = 1 10000010 0011000...b(IEEE754-Simples)
+                                                   = C1 18 00 00h(IEEE754-Simples)
+
+tabela1 WORD 3 DUP(1678)       ; 2 Bytes (x3) -> 068Eh | 068Eh | 068Eh
+tabela2 BYTE 5, 10, 15, 20     ; 1 Byte (x4)  -> 05h | 0Ah | 0Fh | 14h
+tabela3 BYTE 5 DUP(6 DUP(?))   ; 1 Byte (5x6)
+
+string1 BYTE 'H', 'o', 'j', 'e', 0     ; 1  Byte (x5) -> 48h | 6Fh | 6Ah | 65h | 00h
+string2 BYTE 'Hoje', 0                 ; 1  Byte (x5) -> 48h | 6Fh | 6Ah | 65h | 00h
+string3 BYTE 48h, 6Fh, 6Ah, 65h, 00h   ; 1  Byte (x5) -> 48h | 6Fh | 6Ah | 65h | 00h
+string4 BYTE 72, 111, 106, 101, 0      ; 1  Byte (x5) -> 48h | 6Fh | 6Ah | 65h | 00h
+

@@ -1,0 +1,58 @@
+DOSBOX
+======
+
+WINDOWS
+-------
+C:\8086\CODIGO    <---->   C:\CODIGO>_ (DOSBox)
+C:\8086\HELPPC21
+C:\8086\MASM61
+
+COMANDOS
+--------
+CLS    - Limpar monitor (DOSBox)
+         C:\CODIGO> cls
+DIR    - Listar conteúdo de uma pasta (corrente)
+         dir
+TYPE   - Mostrar conteúdo de ficheiro (.TXT, .ASM, ...)
+         type exemplo.asm
+DEL    - Apagar ficheiro
+         del template.asm
+CD     - Mudar de pasta (navegar no sistema de ficheiros)
+         cd ..
+         cd helppc21
+COPY   - Copiar ficheiros
+         cp exemplo.exe bin\ttt.exe
+EXIT   - Sair DOSBox
+
+TECLAS
+------
+TAB    - Completa o nome do ficheiro (se for único)
+SETAS  - Ir buscar um comando já introduzido (UP/DOWN)
+
+ASSEMBLY
+--------
+HELPPC  - Ajuda local (assembly, C, 8086, ASCII, Interrupções, ...)
+          helppc
+ML      - Tradutor assembly (.ASM ---> .OBJ ---> .EXE)
+          ml /Zi exemplo.ASM
+CV      - Debugger (.EXE)
+          cv exemplo.EXE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MAC
+---
+~/Downloads/8086   --->   ~/8086
